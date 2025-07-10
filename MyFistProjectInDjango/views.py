@@ -24,6 +24,9 @@ def espar(request,numero):
     return HttpResponse(respuesta)
 
 
+def home(request):
+    return render(request,'templates/home.html')
+
 
 # pip3 install Django
 # django-admin startproject PROJECT_NAME
