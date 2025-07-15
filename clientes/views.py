@@ -30,10 +30,15 @@ def crear_persona(request):
         if(formulario.is_valid()):
             nombres = formulario.cleaned_data['nombre']
             apellidos = formulario.cleaned_data['apellidos']
-            #persona = Persona.objects.create(nombre = formulario_data)
-            return HttpResponse("Hola " + nombres + " " + apellidos)
+            persona = models.Persona.objects.create(nombre = nombres, apellidos = apellidos)
+            persona.save()
+            return HttpResponse("Hola " + nombres + " " + apellidos + ", fuiste registrado correctamente.")
+            #return HttpResponse(models.Persona.objects.all())
     formulario = forms.Formulario_Persona()
     return render(request, "cliente/persona.html", {
         "formulario": formulario
     })
 
+def listar_personas(request):
+    return render(request, "cliente/lista_personas.html",{"personas":models.Persona.objects.all()})
+    

@@ -8,5 +8,6 @@ urlpatterns = [
     path('/saludarconnombre/<str:nombre>',views.saludarconnombre, name = "saludarconnombre"),
     path('/html',views.llamarplantilla,name = "html"),
     path('/saludarhtml/<str:nombre>',views.saludarConPlantilla,name = "HolaHtml"),
-    path('/crearpersona', views.crear_persona, name = "crear_persona")
+    path('/crearpersona', views.crear_persona, name = "crear_persona"),
+    path('/listarpersona', views.listar_personas, name = "listar_personas")
 ]
