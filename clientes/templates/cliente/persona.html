@@ -1,6 +1,29 @@
-<form action="crearpersona" method="post">  
-    {% csrf_token %}
-    {{formulario}}
-    <button>Saludar</button>
-</form>
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://bootswatch.com/5/quartz/bootstrap.min.css" rel="stylesheet">
+    <title>Nueva persona</title>
+</head>
+<body>
+        
+    <div class="container">
+        <form action="crearpersona" method="post">  
+            {% csrf_token %}
+            {{formulario|crispy}}
+
+            <select class="form-select" aria-label="Genero">
+                <option selected>Seleccione el genero</option>
+                <option value="1">Varon</option>
+                <option value="2">Mujer</option>
+                <option value="3">Transfomer</option>
+            </select>
+            <button class="btn btn-primary">Registrar</button>
+        </form>
+    </div>
+
+</body>
+</html>
 
